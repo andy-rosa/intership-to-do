@@ -1,0 +1,19 @@
+.status {
+  padding: 5px;
+  border-radius: 50%;
+
+  &--normal {
+    background-color: #ffb300;
+    border: 1px solid #ffb300;
+  }
+
+  &--important {
+    background-color: #ff0000;
+    border: 1px solid #ff0000;
+  }
+
+  &--completed {
+    background-color: #00ff00;
+    border: 1px solid #00ff00;
+  }
+}
