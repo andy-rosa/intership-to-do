@@ -7,6 +7,7 @@ import {TodoStatus} from "./types/todo-status";
 })
 export class TodoService {
   private todos: TodoItem[] = []
+  private _idCounter = 0;
 
   constructor() { }
 
@@ -14,8 +15,10 @@ export class TodoService {
     return this.todos
   }
 
-  addTodoItem(item: TodoItem) {
-    this.todos.push(item)
+  addTodoItem(title: string, status: TodoStatus = TodoStatus.Normal) {
+    const newItem = new TodoItem(this._idCounter, title, status);
+    this._idCounter++;
+    this.todos.push(newItem)
   }
 
   removeTodoItem(id: number) {
