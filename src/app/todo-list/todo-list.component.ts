@@ -10,7 +10,7 @@ import {TodoItem} from "../todo-item";
 export class TodoListComponent {
   private todos: TodoItem[];
 
-  constructor(public todoService: TodoService) {
+  constructor(@Inject(TodoService) public todoService: TodoService) {
     this.todos = todoService.getTodoItems();
   }
 }
