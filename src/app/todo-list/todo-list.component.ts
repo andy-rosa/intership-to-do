@@ -1,6 +1,7 @@
 import {Component, Inject} from '@angular/core';
 import {TodoService} from "../todo.service";
 import {TodoItem} from "../todo-item";
+import {TodoStatus} from "../types/todo-status";
 
 @Component({
   selector: 'app-todo-list',
@@ -8,9 +9,17 @@ import {TodoItem} from "../todo-item";
   styleUrls: ['./todo-list.component.scss']
 })
 export class TodoListComponent {
-  private todos: TodoItem[];
+  private _todos: TodoItem[];
 
   constructor(@Inject(TodoService) public todoService: TodoService) {
-    this.todos = todoService.getTodoItems();
+    this._todos = todoService.getTodoItems();
+  }
+
+  get todos(): TodoItem[] {
+    return this._todos
+  }
+
+  public addTodoItem({title, status}: {title: string, status: TodoStatus}): void {
+    this.todoService.addTodoItem(title, status);
   }
 }
