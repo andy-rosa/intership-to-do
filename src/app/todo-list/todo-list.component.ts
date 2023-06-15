@@ -24,6 +24,10 @@ export class TodoListComponent {
     this.todoService.addTodoItem(title, status);
   }
 
+  public changeTodoStatus({id, status}: {id: number, status: TodoStatus}): void {
+    this.todoService.changeTodoStatus(id, status);
+  }
+
   public filteredTodos(
     {searchTitle, filterStatus} : {
       searchTitle: string, filterStatus: FilterStatus
