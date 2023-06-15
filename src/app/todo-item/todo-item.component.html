@@ -14,4 +14,5 @@
     <option value="{{TodoStatus.Completed}}">Completed</option>
   </select>
   </label>
+  <button (click)="deleteTodoEvent.emit(item.id)">Delete</button>
 </div>

@@ -17,6 +17,10 @@ export class TodoItemComponent implements DoCheck{
     status: TodoStatus
     id: number
   }>();
+
+  @Output()
+  public deleteTodoEvent = new EventEmitter<number>()
+
   protected readonly TodoStatus = TodoStatus;
 
   ngDoCheck() {

@@ -22,7 +22,8 @@ export class TodoService {
   }
 
   removeTodoItem(id: number) {
-    this.todos.filter(todo => todo.id !== id)
+    this.todos = this.todos.filter(todo => todo.id !== id)
+    return this.todos
   }
 
   changeTodoStatus(id: number, newStatus: TodoStatus) {

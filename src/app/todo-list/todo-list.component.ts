@@ -28,6 +28,11 @@ export class TodoListComponent {
     this.todoService.changeTodoStatus(id, status);
   }
 
+  public removeTodoItem(id: number): void {
+    this.todoService.removeTodoItem(id);
+    this._todos = this.todoService.getTodoItems();
+  }
+
   public filteredTodos(
     {searchTitle, filterStatus} : {
       searchTitle: string, filterStatus: FilterStatus
