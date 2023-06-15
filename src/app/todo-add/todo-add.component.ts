@@ -9,7 +9,7 @@ import {TodoStatus} from "../types/todo-status";
 })
 export class TodoAddComponent {
   titleTask!: string;
-  statusTask!: TodoStatus;
+  statusTask: TodoStatus = TodoStatus.Normal;
 
   @Output()
   public createTodoEvent = new EventEmitter<Omit<TodoItem, 'id'>>();

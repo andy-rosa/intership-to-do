@@ -1,0 +1,13 @@
+<div>
+  <input type="text" [(ngModel)]="searchTitleItem" />
+  <select [(ngModel)]="filterStatusItem" >
+    <option value="All">All</option>
+    <option value="{{TodoStatus.Normal}}" >Normal</option>
+    <option value="{{TodoStatus.Important}}">Important</option>
+    <option value="{{TodoStatus.Completed}}">Completed</option>
+  </select>
+  <button (click)="searchItemEvent.emit({
+    searchTitle: searchTitleItem,
+    filterStatus: filterStatusItem,
+  })" >Search</button>
+</div>

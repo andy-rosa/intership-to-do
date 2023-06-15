@@ -6,13 +6,15 @@ import { TodoItemComponent } from './todo-item/todo-item.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
 import { TodoAddComponent } from './todo-add/todo-add.component';
 import {FormsModule} from "@angular/forms";
+import { TodoSearchComponent } from './todo-search/todo-search.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TodoItemComponent,
     TodoListComponent,
-    TodoAddComponent
+    TodoAddComponent,
+    TodoSearchComponent
   ],
   imports: [
     BrowserModule,

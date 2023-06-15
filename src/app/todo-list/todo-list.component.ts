@@ -2,6 +2,7 @@ import {Component, Inject} from '@angular/core';
 import {TodoService} from "../todo.service";
 import {TodoItem} from "../todo-item";
 import {TodoStatus} from "../types/todo-status";
+import {FilterStatus} from "../todo-search/todo-search.component";
 
 @Component({
   selector: 'app-todo-list',
@@ -21,5 +22,29 @@ export class TodoListComponent {
 
   public addTodoItem({title, status}: {title: string, status: TodoStatus}): void {
     this.todoService.addTodoItem(title, status);
+  }
+
+  public filteredTodos(
+    {searchTitle, filterStatus} : {
+      searchTitle: string, filterStatus: FilterStatus
+    }): TodoItem[] {
+    this._todos = this.todoService.getTodoItems();
+
+    if (!searchTitle && filterStatus === 'All') return this.todos
+
+    if (!searchTitle) {
+      this._todos = this.todos.filter(todo => {
+        return todo.status === filterStatus
+      })
+      return this.todos
+    }
+
+    this._todos = this.todos
+      .filter(todo => {
+        if (filterStatus === 'All') return true
+        return todo.status === filterStatus && todo.title.includes(searchTitle)
+      })
+
+    return this.todos
   }
 }
