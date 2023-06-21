@@ -7,8 +7,8 @@
     'status--completed': item.status === TodoStatus.Completed
   }" (change)="changeStatusEvent.emit({
     id: item.id,
-    status: statusValue
-  })" [(ngModel)]="statusValue" >
+    status: item.status
+  })" [(ngModel)]="item.status" >
     <option value="{{TodoStatus.Normal}}" >Normal</option>
     <option value="{{TodoStatus.Important}}">Important</option>
     <option value="{{TodoStatus.Completed}}">Completed</option>

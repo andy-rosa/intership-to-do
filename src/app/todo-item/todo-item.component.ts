@@ -7,9 +7,7 @@ import {TodoStatus} from "../types/todo-status";
   templateUrl: './todo-item.component.html',
   styleUrls: ['./todo-item.component.scss']
 })
-export class TodoItemComponent implements DoCheck{
-  statusValue!: TodoStatus
-
+export class TodoItemComponent {
   @Input() item!: TodoItem;
 
   @Output()
@@ -23,7 +21,4 @@ export class TodoItemComponent implements DoCheck{
 
   protected readonly TodoStatus = TodoStatus;
 
-  ngDoCheck() {
-    this.statusValue = this.item.status;
-  }
 }

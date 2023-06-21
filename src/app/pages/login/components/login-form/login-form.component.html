@@ -1,0 +1,81 @@
+<form [formGroup]="loginForm" (ngSubmit)="submit()" >
+  <h2>Авторизация пользователя</h2>
+  <div
+    class="form-control"
+    [ngClass]="{invalid: email?.touched && email?.invalid}"
+  >
+    <input
+      id="email"
+      type="email"
+      formControlName="email"
+      [ngClass]="
+      {
+        'invalid':email?.touched && email?.invalid
+      }"
+    >
+    <label
+      for="email"
+      [ngClass]="{
+      'have-input-value': email?.value,
+      'invalid': email?.touched && email?.invalid
+      }"
+    >
+      Email
+    </label>
+    <div
+      class="validation"
+      *ngIf="email?.touched && email?.invalid"
+    >
+      <small
+        *ngIf="email?.errors?.['required']"
+      >
+        Required field
+      </small>
+      <small
+        *ngIf="email?.errors?.['email']"
+      >
+        Incorrect email
+      </small>
+    </div>
+  </div>
+
+  <div
+    class="form-control"
+    [ngClass]="{
+    'invalid': password?.touched
+    && password?.invalid
+    }"
+  >
+    <input
+      id="password"
+      type="password"
+      formControlName="password"
+      [ngClass]="{
+        'invalid': password?.touched
+         && password?.invalid
+        }"
+    >
+    <label for="password"
+           [ngClass]="{
+           'have-input-value': password?.value,
+           'invalid': password?.touched && password?.invalid
+           }"
+    >
+      Password
+    </label>
+    <div
+      class="validation"
+      *ngIf="password?.touched && password?.invalid"
+    >
+      <small
+        *ngIf="password?.errors?.['required']"
+      >
+        Required field
+      </small>
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="loginForm.invalid" >
+    Login
+  </button>
+</form>

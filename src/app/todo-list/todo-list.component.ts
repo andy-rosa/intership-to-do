@@ -51,7 +51,7 @@ export class TodoListComponent {
 
     this._todos = this.todos
       .filter(todo => {
-        if (filterStatus === 'All') return true
+        if (filterStatus === 'All') return todo.title.includes(searchTitle)
         return todo.status === filterStatus && todo.title.includes(searchTitle)
       })
 

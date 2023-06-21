@@ -1,0 +1,100 @@
+.form-control {
+  position: relative;
+  width: 100%;
+}
+
+input {
+  padding: 8px;
+  margin: 8px;
+  width: 100%;
+
+  border-radius: 5px;
+  outline: none;
+  border: 0.5px solid #5f5f5f;
+
+  &:focus {
+    border-color: #2b6fe6;
+  }
+}
+
+input:focus + label {
+  font-size: 12px;
+  top: 0;
+  left: 16px;
+  background-color: white;
+}
+
+label {
+  font-size: 16px;
+  color: #5f5f5f;
+  position: absolute;
+  top: 14px;
+  left: 14px;
+
+  transition: all 0.1s ease-in-out;
+}
+
+.have-input-value {
+  font-size: 12px;
+  top: 0;
+  left: 16px;
+  background-color: white;
+}
+
+small {
+  font-size: 14px;
+  display: inline-block;
+  margin: 0 8px 0 8px;
+}
+
+.invalid {
+  border-color: red;
+  color: red;
+}
+
+button[type="submit"] {
+  margin: 8px;
+  width: 160px;
+  border: none;
+  height: 46px;
+  background-color: #2b6fe6;
+  color: white;
+  border-radius: 5px;
+
+
+  align-self: start;
+  cursor: pointer;
+  font-size: 14px;
+
+  transition: all 0.1s ease-in-out;
+
+  &:hover {
+    background-color: #1a55bd;
+  }
+}
+
+h2 {
+  text-align: center;
+}
+
+form {
+  margin: calc(50vh - 300px) auto 0;
+  width: 400px;
+  height: 300px;
+  display: flex;
+  padding: 20px;
+
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  gap: 8px;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+
+  &:hover {
+    background-color: #2b6fe6;
+  }
+}
