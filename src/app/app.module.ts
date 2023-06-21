@@ -10,12 +10,13 @@ import { TodoSearchComponent } from './pages/todos/components/todo-search/todo-s
 import { LoginFormComponent } from './pages/login/components/login-form/login-form.component';
 import { LoginPageComponent } from './pages/login/components/login-page/login-page.component';
 import {RouterOutlet} from "@angular/router";
-import {AppRoutingModule} from "./app-routing.module";
+import {AppRoutingModule} from "./routing/app-routing.module";
 import { AboutPageComponent } from './pages/about/components/about-page/about-page.component';
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import { TodosPageComponent } from './pages/todos/components/todos-page/todos-page.component';
 import {ENVIRONMENT} from "./services/environment-service/environment.service";
 import {environment} from "../environments/environment";
+import {JwtInterceptor} from "./shared/interceptors/jwt.interceptors";
 
 @NgModule({
   declarations: [
@@ -37,7 +38,10 @@ import {environment} from "../environments/environment";
     AppRoutingModule,
     RouterOutlet
   ],
-  providers: [{ provide: ENVIRONMENT, useValue: environment }],
+  providers: [
+    { provide: ENVIRONMENT, useValue: environment },
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
