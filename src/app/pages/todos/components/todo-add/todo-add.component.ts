@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Output} from '@angular/core';
-import {TodoItem} from "../../../../todo-item";
-import {TodoStatus} from "../../../../types/todo-status";
+import {TodoItem} from "../../model/types/todo-item";
+import {TodoStatus} from "../../model/types/todo-status";
 
 @Component({
   selector: 'app-todo-add',

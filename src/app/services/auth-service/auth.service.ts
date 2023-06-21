@@ -21,7 +21,6 @@ export class AuthService implements AuthServiceInterface {
     private routes: Router
   ) {
     this.baseUrl = `${this.environmentService.getValue('originalBackend')}/auth`
-    console.log(this.baseUrl)
   }
 
   public login(email: string, password: string) {

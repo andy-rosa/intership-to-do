@@ -1,15 +1,24 @@
 import { Injectable } from '@angular/core';
-import {TodoItem} from "./todo-item";
-import {TodoStatus} from "./types/todo-status";
+import {TodoItem} from "../../pages/todos/model/types/todo-item";
+import {TodoStatus} from "../../pages/todos/model/types/todo-status";
+import {HttpClient} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
 })
 export class TodoService {
   private todos: TodoItem[] = []
-  private _idCounter = 0;
+  private _idCounter = 4;
 
-  constructor() { }
+  constructor(
+    private http: HttpClient
+  ) { }
+
+  fetchTodos() {
+    this.http.get<TodoItem[]>('../../assets/todo-list.json').subscribe(todos => {
+      this.todos = todos
+    })
+  }
 
   getTodoItems(): TodoItem[] {
     return this.todos

@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "title": "Todo 1",
+    "status": "normal"
+  },
+  {
+    "id": 2,
+    "title": "Todo 2",
+    "status": "important"
+  },
+  {
+    "id": 3,
+    "title": "Todo 3",
+    "status": "completed"
+  }
+]

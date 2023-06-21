@@ -1,4 +1,4 @@
-import {TodoStatus} from "./types/todo-status";
+import {TodoStatus} from "./todo-status";
 
 export class TodoItem {
   private _id: number;

@@ -1,7 +1,7 @@
-import {ChangeDetectionStrategy, Component, Inject} from '@angular/core';
-import {TodoService} from "../../../../todo.service";
-import {TodoItem} from "../../../../todo-item";
-import {TodoStatus} from "../../../../types/todo-status";
+import {ChangeDetectionStrategy, Component, DoCheck, Inject} from '@angular/core';
+import {TodoService} from "../../../../services/todo-service/todo.service";
+import {TodoItem} from "../../model/types/todo-item";
+import {TodoStatus} from "../../model/types/todo-status";
 import {FilterStatus} from "../todo-search/todo-search.component";
 
 @Component({
@@ -11,10 +11,10 @@ import {FilterStatus} from "../todo-search/todo-search.component";
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TodoListComponent {
-  private _todos: TodoItem[];
+  private _todos: TodoItem[] = [];
 
   constructor(@Inject(TodoService) public todoService: TodoService) {
-    this._todos = todoService.getTodoItems();
+    this.todoService.fetchTodos();
   }
 
   get todos(): TodoItem[] {

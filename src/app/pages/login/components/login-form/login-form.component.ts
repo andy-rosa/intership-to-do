@@ -12,6 +12,7 @@ import {Router} from "@angular/router";
 export class LoginFormComponent implements OnInit {
   loginForm!: FormGroup
   user?: User;
+  error?: any;
 
   constructor(
     private auth: AuthService,
@@ -45,6 +46,9 @@ export class LoginFormComponent implements OnInit {
     this.auth.login(email, password).subscribe(() => {
       this.loginForm.reset()
       this.routes.navigate([''])
-    })
+    },
+      error => {
+        this.error = error
+      })
     }
   }

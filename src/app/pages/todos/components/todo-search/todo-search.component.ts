@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Output} from '@angular/core';
-import {TodoStatus} from "../../../../types/todo-status";
+import {TodoStatus} from "../../model/types/todo-status";
 
 export type FilterStatus = TodoStatus | 'All';
 

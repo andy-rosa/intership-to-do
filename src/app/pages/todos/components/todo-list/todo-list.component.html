@@ -1,6 +1,6 @@
 <app-todo-search (searchItemEvent)="filteredTodos($event)" />
 <app-todo-add (createTodoEvent)="addTodoItem($event)" />
-<div class="todo-list">
+<div class="todo-list" >
   <app-todo-item
     *ngFor="let todo of todos" [item]="todo"
     (changeStatusEvent)="changeTodoStatus($event)"
