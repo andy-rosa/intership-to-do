@@ -1,7 +1,7 @@
 import {ChangeDetectionStrategy, Component, Inject} from '@angular/core';
-import {TodoService} from "../todo.service";
-import {TodoItem} from "../todo-item";
-import {TodoStatus} from "../types/todo-status";
+import {TodoService} from "../../../../todo.service";
+import {TodoItem} from "../../../../todo-item";
+import {TodoStatus} from "../../../../types/todo-status";
 import {FilterStatus} from "../todo-search/todo-search.component";
 
 @Component({
