@@ -8,6 +8,8 @@ import {User, UserRole} from "./user.interface";
 import parseJwt from "../../shared/helpers/parseJwt";
 import {EnvironmentService} from "../environment-service/environment.service";
 
+const SINGLE_USER = 0;
+
 @Injectable({
   providedIn: 'root'
 })
@@ -51,7 +53,7 @@ export class AuthService implements AuthServiceInterface {
 
   public get userRoles(): UserRole | undefined {
     if (!this._user) return
-    return this._user.roles[0].UserRole.id
+    return this._user.roles[SINGLE_USER].UserRole.id
   }
 
   public get token(): string | null {

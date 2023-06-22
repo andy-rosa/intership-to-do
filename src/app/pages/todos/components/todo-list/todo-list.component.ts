@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, DoCheck, Inject} from '@angular/core';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {TodoService} from "../../../../services/todo-service/todo.service";
 import {TodoItem} from "../../model/types/todo-item";
 import {TodoStatus} from "../../model/types/todo-status";
@@ -13,7 +13,7 @@ import {FilterStatus} from "../todo-search/todo-search.component";
 export class TodoListComponent {
   private _todos: TodoItem[] = [];
 
-  constructor(@Inject(TodoService) public todoService: TodoService) {
+  constructor(public todoService: TodoService) {
     this.todoService.fetchTodos();
   }
 
@@ -23,6 +23,7 @@ export class TodoListComponent {
 
   public addTodoItem({title, status}: {title: string, status: TodoStatus}): void {
     this.todoService.addTodoItem(title, status);
+    this._todos = this.todoService.getTodoItems();
   }
 
   public changeTodoStatus({id, status}: {id: number, status: TodoStatus}): void {

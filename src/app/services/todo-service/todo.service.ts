@@ -21,13 +21,13 @@ export class TodoService {
   }
 
   getTodoItems(): TodoItem[] {
-    return this.todos
+    return [...this.todos]
   }
 
   addTodoItem(title: string, status: TodoStatus = TodoStatus.Normal) {
     const newItem = new TodoItem(this._idCounter, title, status);
     this._idCounter++;
-    this.todos.push(newItem)
+    this.todos = [...this.todos, newItem]
   }
 
   removeTodoItem(id: number) {
