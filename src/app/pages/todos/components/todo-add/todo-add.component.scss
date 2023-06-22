@@ -1,0 +1,51 @@
+input {
+  padding: 10px;
+  margin: 8px;
+  width: 60%;
+
+  border-radius: 5px;
+  outline: none;
+  border: 0.5px solid #5f5f5f;
+
+  &:focus {
+    border-color: #2b6fe6;
+  }
+}
+
+button {
+  margin: 0 8px;
+  width: 120px;
+  height: 36px;
+  border-radius: 4px;
+  background: none;
+  border: 1px solid blue;
+  color: blue;
+  cursor: pointer;
+
+  transition: all 0.1s ease-in-out;
+
+  &:hover {
+    background: blue;
+    color: white;
+  }
+}
+
+select {
+  padding: 0 1.4em;
+  min-height: 36px;
+  border: 1px solid blue;
+  border-radius: 5px;
+  color: blue;
+  background-color: white;
+  line-height: 1;
+  min-width: 140px;
+  transition: 0.6s ease-in;
+  outline: none;
+  cursor: pointer;
+}
+
+div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
