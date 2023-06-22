@@ -17,6 +17,7 @@ import { TodosPageComponent } from './pages/todos/components/todos-page/todos-pa
 import {ENVIRONMENT} from "./services/environment-service/environment.service";
 import {environment} from "../environments/environment";
 import {JwtInterceptor} from "./shared/interceptors/jwt.interceptors";
+import { NavbarComponent } from './widgets/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import {JwtInterceptor} from "./shared/interceptors/jwt.interceptors";
     LoginFormComponent,
     LoginPageComponent,
     AboutPageComponent,
-    TodosPageComponent
+    TodosPageComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,45 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+
+  color: #333333;
+}
+
+.active {
+  color: blue;
+}
+
+ul {
+  display: flex;
+  align-self: center;
+  gap: 24px;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  text-transform: capitalize;
+  font-size: 24px;
+}
+
+button {
+  width: 120px;
+  height: 36px;
+  border-radius: 4px;
+  background: none;
+  border: 1px solid blue;
+  color: blue;
+  cursor: pointer;
+
+  transition: all 0.1s ease-in-out;
+
+  &:hover {
+    background: blue;
+    color: white;
+  }
+}

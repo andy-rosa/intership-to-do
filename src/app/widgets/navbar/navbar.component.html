@@ -1,0 +1,35 @@
+<nav>
+  <ul>
+    <li>
+      <a
+        [routerLink]="['/']"
+        [routerLinkActive]="['active']"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        todos
+      </a>
+    </li>
+    <li>
+      <a routerLink="/about" routerLinkActive="active">
+        about
+      </a>
+    </li>
+  </ul>
+
+  <button
+    type="button"
+    *ngIf="isAuth; else loginButton"
+    (click)="onLogoutHandler()"
+  >
+    Logout
+  </button>
+  <ng-template #loginButton>
+    <button
+      type="button"
+      *ngIf="isLoginPage"
+      (click)="onLoginHandler()"
+    >
+      Login
+    </button>
+  </ng-template>
+</nav>
