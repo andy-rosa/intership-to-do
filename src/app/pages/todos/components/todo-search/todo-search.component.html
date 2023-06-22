@@ -1,5 +1,10 @@
 <div>
-  <input type="text" [(ngModel)]="searchTitleItem" placeholder="Enter search task title..."/>
+  <input
+    type="text"
+    [(ngModel)]="searchTitleItem"
+    placeholder="Enter search task title..."
+
+  />
   <select [(ngModel)]="filterStatusItem" >
     <option value="All">All</option>
     <option value="{{TodoStatus.Normal}}" >Normal</option>

@@ -1,12 +1,20 @@
-<div class="todo-add">
-  <input type="text" [(ngModel)]="titleTask" placeholder="Enter title new task..."/>
-  <select [(ngModel)]="statusTask" >
+<form class="todo-add" [formGroup]="addTodoForm" (ngSubmit)="create()" >
+  <input
+    type="text"
+    placeholder="Enter title new task..."
+    formControlName="title"
+  />
+  <select
+    formControlName="status"
+  >
     <option value="{{TodoStatus.Normal}}">Normal</option>
     <option value="{{TodoStatus.Important}}">Important</option>
     <option value="{{TodoStatus.Completed}}">Completed</option>
   </select>
-  <button (click)="createTodoEvent.emit({
-    title: titleTask,
-    status: statusTask
-  })" >Create task</button>
-</div>
+  <button
+    type="submit"
+    [disabled]="addTodoForm.invalid"
+  >
+    Create task
+  </button>
+</form>

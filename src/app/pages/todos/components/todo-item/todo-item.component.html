@@ -1,6 +1,16 @@
 <div class="todo-item">
-  <input type="checkbox" [checked]="item.status === TodoStatus.Completed" />
-  <label class="todo-text" [ngClass]="{'label--completed': item.status === TodoStatus.Completed}">{{item.title}}
+  <input
+    type="checkbox"
+    [checked]="item.status === TodoStatus.Completed"
+    (change)="changeStatusEvent.emit({
+      id: item.id,
+      status: TodoStatus.Completed
+    })"
+    [disabled]="item.status === TodoStatus.Completed"
+  />
+  <label class="todo-text" [ngClass]="{'label--completed': item.status === TodoStatus.Completed}">
+    {{item.title}}
+  </label>
   <select [ngClass]="{
     'status--normal': item.status === TodoStatus.Normal,
     'status--important': item.status === TodoStatus.Important,
@@ -14,6 +24,5 @@
     <option value="{{TodoStatus.Important}}">Important</option>
     <option value="{{TodoStatus.Completed}}">Completed</option>
   </select>
-  </label>
   <button (click)="deleteTodoEvent.emit(item.id)">Delete</button>
 </div>

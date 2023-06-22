@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component} from '@angular/core';
+import {AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component} from '@angular/core';
 import {TodoService} from "../../../../services/todo-service/todo.service";
 import {TodoItem} from "../../model/types/todo-item";
 import {TodoStatus} from "../../model/types/todo-status";
@@ -10,11 +10,21 @@ import {FilterStatus} from "../todo-search/todo-search.component";
   styleUrls: ['./todo-list.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TodoListComponent {
+export class TodoListComponent implements AfterViewInit {
   private _todos: TodoItem[] = [];
 
-  constructor(public todoService: TodoService) {
+  constructor(
+    public todoService: TodoService,
+    private cdRef: ChangeDetectorRef
+  ) {
     this.todoService.fetchTodos();
+  }
+
+  ngAfterViewInit() {
+    setTimeout(() => {
+      this._todos = this.todoService.getTodoItems();
+      this.cdRef.markForCheck();
+    },100)
   }
 
   get todos(): TodoItem[] {
@@ -52,7 +62,7 @@ export class TodoListComponent {
 
     this._todos = this.todos
       .filter(todo => {
-        if (filterStatus === 'All') return todo.title.includes(searchTitle)
+        if (filterStatus === 'All') return todo.title?.includes(searchTitle)
         return todo.status === filterStatus && todo.title.includes(searchTitle)
       })
 
