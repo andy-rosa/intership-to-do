@@ -1,0 +1,4 @@
+<h1>Films</h1>
+<ul>
+  <li *ngFor="let film of filteredFilms$ | async">{{ film.title }} ({{ film.releaseYear }})</li>
+</ul>

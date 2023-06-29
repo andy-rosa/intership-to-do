@@ -79,6 +79,6 @@
     Login
   </button>
 </form>
-<div *ngIf="error" class="error-message">
+<div *ngIf="loginForm.hasError('nameError')" class="error-message">
   Произошла ошибка авторизации
 </div>

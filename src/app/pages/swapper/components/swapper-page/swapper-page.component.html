@@ -1,0 +1,6 @@
+<h1>Pagination Example</h1>
+<button (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
+<button (click)="nextPage()">Next</button>
+<ul>
+  <li *ngFor="let item of data$ | async">{{ item }}</li>
+</ul>

@@ -1,0 +1,5 @@
+<h1>Star Wars Characters</h1>
+<input type="text" placeholder="Search" (input)="searchCharacters($event.target)" />
+<ul>
+  <li *ngFor="let character of filteredCharacters$ | async">{{ character.name }} - Height: {{ character.height }}</li>
+</ul>

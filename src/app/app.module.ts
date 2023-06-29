@@ -18,6 +18,9 @@ import {ENVIRONMENT} from "./services/environment-service/environment.service";
 import {environment} from "../environments/environment";
 import {JwtInterceptor} from "./shared/interceptors/jwt.interceptors";
 import { NavbarComponent } from './widgets/navbar/navbar.component';
+import { CharacterPageComponent } from './pages/character/components/character-page/character-page.component';
+import { FilmsPageComponent } from './pages/films/components/films-page/films-page.component';
+import { SwapperPageComponent } from './pages/swapper/components/swapper-page/swapper-page.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,10 @@ import { NavbarComponent } from './widgets/navbar/navbar.component';
     LoginPageComponent,
     AboutPageComponent,
     TodosPageComponent,
-    NavbarComponent
+    NavbarComponent,
+    CharacterPageComponent,
+    FilmsPageComponent,
+    SwapperPageComponent
   ],
   imports: [
     BrowserModule,

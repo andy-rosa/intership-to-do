@@ -1,32 +1,33 @@
-import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {Component} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../../../../services/auth-service/auth.service";
-import {User} from "../../../../services/auth-service/user.interface";
 import {Router} from "@angular/router";
+import {EmailValidatorAsync} from "./validators/email.validator";
 
 @Component({
   selector: 'app-login-form',
   templateUrl: './login-form.component.html',
   styleUrls: ['./login-form.component.scss']
 })
-export class LoginFormComponent implements OnInit {
+export class LoginFormComponent {
   loginForm!: FormGroup
-  user?: User;
-  error?: any;
 
   constructor(
     private auth: AuthService,
     private routes: Router,
-  ) {}
+    private fb: FormBuilder
+  ) {
+    this.createForm()
+  }
 
-  ngOnInit(): void {
-    this.loginForm = new FormGroup({
-      email: new FormControl(null, [
+  private createForm() {
+    this.loginForm = this.fb.group({
+      email: [null, [
         Validators.required, Validators.email
-      ]),
-      password: new FormControl(null, [
+      ], [EmailValidatorAsync.bind(this)]],
+      password: [null, [
         Validators.required
-      ])
+      ]]
     })
   }
 
@@ -46,9 +47,6 @@ export class LoginFormComponent implements OnInit {
     this.auth.login(email, password).subscribe(() => {
       this.loginForm.reset()
       this.routes.navigate([''])
-    },
-      error => {
-        this.error = error
-      })
+    })
     }
   }
