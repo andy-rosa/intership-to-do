@@ -6,10 +6,9 @@ function delay(ms: number): Promise<void> {
 
 function sumArrayElements(array: number[]): Promise<number> {
   return new Promise((resolve) => {
-    let sum = 0;
-    array.forEach((element) => {
-      sum += element;
-    });
+    const sum = array.reduce((acc,element) => {
+      return acc + element;
+    }, 0);
     resolve(sum);
   });
 }
